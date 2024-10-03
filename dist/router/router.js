@@ -7,11 +7,11 @@ const express_1 = __importDefault(require("express"));
 const compression_1 = __importDefault(require("compression"));
 const cors_1 = __importDefault(require("cors"));
 const body_parser_1 = __importDefault(require("body-parser"));
-const json_value_1 = __importDefault(require("../start/json-value"));
+const json_proj_1 = __importDefault(require("../start/json-value/json-proj"));
 exports.default = (app) => {
     app.use(express_1.default.json());
     app.use((0, compression_1.default)());
     app.use((0, cors_1.default)());
     app.use(body_parser_1.default.json());
-    app.use("/api/jsonValue", json_value_1.default);
+    app.use("/api/jsonValue", json_proj_1.default);
 };
