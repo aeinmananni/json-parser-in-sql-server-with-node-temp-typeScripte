@@ -1,0 +1,21 @@
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# Temporary files
+*.tmp
+.DS_Store
+Thumbs.db
+
+# IDE configurations
+.idea/
+*.sublime-project
+*.sublime-workspace
