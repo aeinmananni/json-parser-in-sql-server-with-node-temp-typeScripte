@@ -15,8 +15,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const router = (0, express_1.Router)();
 const db_1 = __importDefault(require("./db"));
-router.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield (0, db_1.default)(`SELECT  N'ffffff' AS [myJson]`);
+router.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    // send post method with postman => 
+    //     {
+    //         "pattern":"addrres.country",
+    //         "info":{
+    //             "id":1,
+    //              "addrres":{
+    //                    "country":"Iran",
+    //                    "city":"sari"
+    //              },
+    //              "tags":["sports","eater-polo"]
+    //         },
+    //         "type":"basices"
+    //     }
+    const { pattern, info } = req.body;
+    const validatJson = (data) => JSON.stringify(data);
+    const result = yield (0, db_1.default)(`EXECUTE [json].GetJsonValue N'${validatJson(info)}',N'$.${pattern}'`);
     res.send(result.recordset[0]);
 }));
 exports.default = router;
