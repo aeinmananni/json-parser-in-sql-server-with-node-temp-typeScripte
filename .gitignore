@@ -9,6 +9,8 @@ build/
 
 # Environment variables
 .env
+.env.example
 # Temporary files
 package-lock.json
 start/db.ts
+dist/start/db.js

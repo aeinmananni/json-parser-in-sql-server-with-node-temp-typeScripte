@@ -12,6 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.mySqlData = void 0;
 const msnodesqlv8_1 = __importDefault(require("mssql/msnodesqlv8"));
 require("dotenv-safe/config");
 const config = {
@@ -21,10 +22,10 @@ const config = {
         trustedConnection: true
     }
 };
-const mySqlData = (sqlQuery) => __awaiter(void 0, void 0, void 0, function* () {
+const mySqlData = (sqlLink) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let pool = yield msnodesqlv8_1.default.connect(config);
-        let result = yield pool.request().query(sqlQuery);
+        let result = yield pool.request().query(sqlLink);
         yield pool.close();
         return result;
     }
@@ -32,4 +33,5 @@ const mySqlData = (sqlQuery) => __awaiter(void 0, void 0, void 0, function* () {
         throw error;
     }
 });
-exports.default = mySqlData;
+exports.mySqlData = mySqlData;
+exports.default = exports.mySqlData;
