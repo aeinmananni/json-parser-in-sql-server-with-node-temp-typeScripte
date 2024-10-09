@@ -16,3 +16,4 @@ start/db.ts
 dist/start/db.js
 node_modules/.package-lock.json
 .env.example
+dist/index.js
