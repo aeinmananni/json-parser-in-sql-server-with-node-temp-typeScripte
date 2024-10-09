@@ -11,3 +11,4 @@ build/
 .env
 # Temporary files
 package-lock.json
+start/db.ts
