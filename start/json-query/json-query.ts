@@ -1,11 +1,11 @@
-import {Router} from "express";
+import {Router,Request,Response} from "express";
 const router = Router();
 import mySqlData from "../db";
 import validateJson from "../../utils/validate-json";
 
 //In the following API, we want to use a Json format
 
-router.post("/" , async (req,res) =>{
+router.post("/" , async (req:Request,res:Response) =>{
     const {productType,jsonContent} =req.body;
     //First, we send the following data in postman and then we receive this output from the database
     // {
