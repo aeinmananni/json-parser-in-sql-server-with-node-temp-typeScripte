@@ -9,6 +9,7 @@ import openJson from '../start/open-json/open-json';
 import forJson from '../start/for-json/for-json';
 import rootJson from '../start/add-root-node-to-json-output/add-root-node-to-json-output';
 import includeNullValues from '../start/include_null_values/include_null-values';
+import withoutArrayWrapper from '../start/without-array-wrapper/without-array-wrapper';
 export default  (app:Application) =>{
    app.use(express.json());
    app.use(compression());
@@ -20,6 +21,7 @@ export default  (app:Application) =>{
    app.use("/api/openJson" , openJson);
    app.use("/api/forJson" , forJson);
    app.use("/api/rootJson" , rootJson);
-   app.use("/api/includeNull" , includeNullValues)
+   app.use("/api/includeNull" , includeNullValues);
+   app.use("/api/withhout" , withoutArrayWrapper);
 
 }
